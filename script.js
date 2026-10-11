@@ -1,77 +1,171 @@
 
-const header = document.querySelector(".site-header");
-const menuToggle = document.querySelector("#menu-toggle");
-const navLinks = document.querySelectorAll(".nav-link");
-const searchToggle = document.querySelector("#search-toggle");
-const searchPanel = document.querySelector("#site-search");
-const searchInput = document.querySelector("#search-input");
+/* ==============================
+   1. SELECT HTML ELEMENTS
+============================== */
 
-// Change the header from transparent to white while scrolling.
+const header = document.querySelector("#site-header");
+const navbar = document.querySelector("#navbar");
+const menuToggle = document.querySelector("#menu-toggle");
+
+const searchToggle = document.querySelector("#search-toggle");
+const searchPanel = document.querySelector("#search-panel");
+const searchInput = document.querySelector("#site-search");
+const searchMessage = document.querySelector("#search-message");
+
+const searchForm = document.querySelector("#search-panel");
+const currentYear = document.querySelector("#current-year");
+
+const navLinks = document.querySelectorAll(".nav-link");
+
+
+/* ==============================
+   2. HEADER SCROLL EFFECT
+============================== */
+
 function updateHeader() {
-  header.classList.toggle("scrolled", window.scrollY > 30);
+  if (window.scrollY > 40) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
 }
 
 window.addEventListener("scroll", updateHeader, {
-  passive: true,
+  passive: true
 });
 
+// Set the correct header style on page load.
 updateHeader();
 
-// Open and close the mobile navigation.
+
+/* ==============================
+   3. MOBILE NAVIGATION MENU
+============================== */
+
 function closeMenu() {
-  header.classList.remove("menu-open");
+  navbar.classList.remove("menu-open");
+  menuToggle.classList.remove("active");
+
   menuToggle.setAttribute("aria-expanded", "false");
   menuToggle.setAttribute("aria-label", "Open navigation menu");
-  document.body.classList.remove("menu-open");
+}
+
+function openMenu() {
+  navbar.classList.add("menu-open");
+  menuToggle.classList.add("active");
+
+  menuToggle.setAttribute("aria-expanded", "true");
+  menuToggle.setAttribute("aria-label", "Close navigation menu");
 }
 
 menuToggle.addEventListener("click", () => {
-  const isOpen = header.classList.toggle("menu-open");
-
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-  menuToggle.setAttribute(
-    "aria-label",
-    isOpen ? "Close navigation menu" : "Open navigation menu"
-  );
-
-  document.body.classList.toggle("menu-open", isOpen);
+  const isOpen = navbar.classList.contains("menu-open");
 
   if (isOpen) {
-    closeSearch();
+    closeMenu();
+  } else {
+    openMenu();
   }
 });
 
-// Close the mobile menu after a navigation link is clicked.
+// Close the mobile menu after selecting a navigation link.
 navLinks.forEach((link) => {
-  link.addEventListener("click", closeMenu);
+  link.addEventListener("click", () => {
+    closeMenu();
+    closeSearch();
+  });
 });
 
-// Search panel controls.
+// Close the mobile menu when switching back to desktop.
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 760) {
+    closeMenu();
+  }
+});
+
+
+/* ==============================
+   4. SEARCH PANEL
+============================== */
+
+function openSearch() {
+  searchPanel.hidden = false;
+
+  searchToggle.setAttribute("aria-expanded", "true");
+  searchToggle.setAttribute("aria-label", "Close search");
+
+  searchInput.focus();
+}
+
 function closeSearch() {
   searchPanel.hidden = true;
-  header.classList.remove("searching");
+
   searchToggle.setAttribute("aria-expanded", "false");
   searchToggle.setAttribute("aria-label", "Open search");
+
+  searchMessage.textContent = "";
 }
 
 searchToggle.addEventListener("click", () => {
-  const willOpen = searchPanel.hidden;
+  const isOpen = !searchPanel.hidden;
 
-  searchPanel.hidden = !willOpen;
-  header.classList.toggle("searching", willOpen);
-  searchToggle.setAttribute("aria-expanded", String(willOpen));
-  searchToggle.setAttribute(
-    "aria-label",
-    willOpen ? "Close search" : "Open search"
-  );
-
-  if (willOpen) {
-    closeMenu();
-    searchInput.focus();
+  if (isOpen) {
+    closeSearch();
+  } else {
+    openSearch();
   }
 });
 
-// Close search when the user presses Escape.
+
+/* ==============================
+   5. WEBSITE SEARCH
+============================== */
+
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const query = searchInput.value.trim().toLowerCase();
+
+  if (!query) {
+    searchMessage.textContent = "Please enter something to search.";
+    searchInput.focus();
+    return;
+  }
+
+  const sections = document.querySelectorAll("main section");
+
+  let matchingSection = null;
+
+  sections.forEach((section) => {
+    if (matchingSection) return;
+
+    const text = section.textContent.toLowerCase();
+
+    if (text.includes(query)) {
+      matchingSection = section;
+    }
+  });
+
+  if (matchingSection) {
+    searchMessage.textContent = "Result found.";
+
+    closeMenu();
+    closeSearch();
+
+    matchingSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  } else {
+    searchMessage.textContent = "No matching content found.";
+  }
+});
+
+
+/* ==============================
+   6. KEYBOARD ACCESSIBILITY
+============================== */
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeMenu();
@@ -79,34 +173,49 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-// Demo search: searches the text of sections on this page.
-searchPanel.addEventListener("submit", (event) => {
-  event.preventDefault();
 
-  const query = searchInput.value.trim().toLowerCase();
+/* ==============================
+   7. ACTIVE NAVIGATION LINK
+============================== */
 
-  if (!query) {
-    searchInput.focus();
-    return;
-  }
+const observedSections = document.querySelectorAll(
+  "main section[id]"
+);
 
-  const sections = [...document.querySelectorAll("main section")];
+if ("IntersectionObserver" in window) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
 
-  const match = sections.find((section) =>
-    section.textContent.toLowerCase().includes(query)
+        navLinks.forEach((link) => {
+          const isActive =
+            link.getAttribute("href") === `#${entry.target.id}`;
+
+          link.classList.toggle("active", isActive);
+
+          if (isActive) {
+            link.setAttribute("aria-current", "location");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      });
+    },
+    {
+      rootMargin: "-30% 0px -60% 0px",
+      threshold: 0
+    }
   );
 
-  if (match) {
-    match.scrollIntoView({ behavior: "smooth" });
-    closeSearch();
-  } else {
-    searchInput.setCustomValidity(
-      "No matching section found. Try About, Services, Projects, or Contact."
-    );
-    searchInput.reportValidity();
-  }
-});
+  observedSections.forEach((section) => {
+    sectionObserver.observe(section);
+  });
+}
 
-searchInput.addEventListener("input", () => {
-  searchInput.setCustomValidity("");
-});
+
+/* ==============================
+   8. AUTOMATIC FOOTER YEAR
+============================== */
+
+currentYear.textContent = new Date().getFullYear();
