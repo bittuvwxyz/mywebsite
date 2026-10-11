@@ -6,17 +6,17 @@
     <!-- Responsive Design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Website Title -->
-    <title>My Website | Web Solutions</title>
+    <title>Bittu.</title>
     <!-- Basic SEO Meta Tags -->
-    <meta name="description" content="Welcome to MyWebsite. Explore our web development projects." />
-    <meta name="keywords" content="web development, frontend development, web design, " />
+    <meta name="description" content="Welcome to Bittu." />
+    <meta name="keywords" content="Welcome to Bittu." />
     <meta name="author" content="Bittu" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
     <meta name="theme-color" content="#ffffff" />
     <!-- AI / Machine-Readable Metadata -->
     <meta name="ai-content-declaration" content="human-created" />
-    <meta name="application-name" content="MyWebsite" />
+    <meta name="application-name" content="Bittu." />
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <!-- CSS -->
@@ -25,10 +25,178 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-
     
+<body>
+  <header class="site-header">
+    <a href="#home" class="brand" aria-label="MyWebsite home">
+      <span class="brand-mark">M</span>
+      <span class="brand-name">MyWebsite</span>
+    </a>
 
-    <!-- JavaScript -->
-    <script src="script.js" defer></script>
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button
+        class="search-toggle"
+        id="search-toggle"
+        type="button"
+        aria-label="Open search"
+        aria-expanded="false"
+        aria-controls="site-search"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10.8" cy="10.8" r="6.8"></circle>
+          <path d="m16 16 4.5 4.5"></path>
+        </svg>
+      </button>
+
+      <a href="#login" class="login-btn">Log in <span>↗</span></a>
+
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navbar"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <form class="search-panel" id="site-search" role="search" hidden>
+      <label class="sr-only" for="search-input">Search this website</label>
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Search this website..."
+      />
+      <button type="submit">Search</button>
+    </form>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <!-- Left side -->
+        <div class="hero-left">
+          <p class="eyebrow">
+            <span class="status-dot"></span>
+            BUILT TO GROW TOGETHER
+          </p>
+
+          <h1 id="hero-title">
+            Small beginnings.<br />
+            <span>Big possibilities.</span>
+          </h1>
+
+          <p class="hero-intro">
+            Welcome to MyWebsite — a place to explore ideas,
+            build experiences, and create something meaningful
+            together.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="capsule-btn">
+              Explore projects <span>↗</span>
+            </a>
+            <a href="#about" class="text-link">Discover our story ↓</a>
+          </div>
+        </div>
+
+        <!-- Right side -->
+        <aside class="hero-right" aria-label="Our mission">
+          <span class="hero-number">01 / OUR MISSION</span>
+
+          <h2>Better things happen when we build together.</h2>
+
+          <p>
+            MyWebsite is an evolving project driven by creativity,
+            learning, and open collaboration. Everyone is invited
+            to contribute ideas, improve the experience, and help
+            shape what comes next.
+          </p>
+
+          <a href="#about" class="round-arrow" aria-label="Learn about us">
+            ↘
+          </a>
+        </aside>
+      </div>
+
+      <a href="#about" class="scroll-cue">
+        <span class="scroll-line"></span>
+        SCROLL TO EXPLORE
+      </a>
+    </section>
+
+    <section class="content-section" id="about">
+      <p class="eyebrow">01 — ABOUT</p>
+      <h2>Ideas become better through collaboration.</h2>
+      <p>
+        We are building this project step by step and welcoming
+        people who want to learn, contribute, and improve it.
+      </p>
+    </section>
+
+    <section class="content-section alt-section" id="services">
+      <p class="eyebrow">02 — WHAT WE DO</p>
+      <h2>Learn. Create. Improve.</h2>
+      <p>
+        We focus on modern web development, responsive design,
+        accessibility, and useful digital experiences.
+      </p>
+    </section>
+
+    <section class="content-section" id="projects">
+      <p class="eyebrow">03 — PROJECTS</p>
+      <h2>Made better by the community.</h2>
+      <p>
+        Explore our work and help us turn new ideas into reality.
+      </p>
+      <a href="#contact" class="capsule-btn">
+        Contribute with us <span>↗</span>
+      </a>
+    </section>
+
+    <section class="content-section alt-section" id="contact">
+      <p class="eyebrow">04 — GET IN TOUCH</p>
+      <h2>Have an idea? Let's hear it.</h2>
+      <p>
+        We welcome suggestions, feedback, and contributions.
+      </p>
+      <a href="#home" class="capsule-btn">
+        Back to top ↑
+      </a>
+    </section>
+
+    <section class="content-section" id="login">
+      <p class="eyebrow">05 — ACCOUNT</p>
+      <h2>Login coming soon.</h2>
+      <p>
+        This is a placeholder for a future login feature.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="#home" class="brand footer-brand">
+      <span class="brand-mark">M</span>
+      <span class="brand-name">MyWebsite</span>
+    </a>
+    <p>© 2026 MyWebsite. Built to grow together.</p>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
