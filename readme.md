@@ -33,7 +33,9 @@ Open this project's GitHub repository and click the **Fork** button to create yo
 **3. Clone Your Fork**
 
 
-```git clone https://github.com/bittuvwxyz/mywebsite.git```
+```bash
+git clone https://github.com/bittuvwxyz/mywebsite.git
+```
 
 > **📢 Note: This is an open-source project, and everyone is welcome to contribute!**
 
