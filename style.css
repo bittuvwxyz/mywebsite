@@ -1,4 +1,3 @@
-
 /* ==============================
    1. RESET AND GLOBAL STYLES
 ============================== */
@@ -14,6 +13,7 @@
   --gray: #6d7771;
   --light: #f5f6f2;
   --border: #e1e5df;
+  --dot: #ff0000;
   --header-height: 84px;
 }
 
@@ -79,11 +79,6 @@ svg {
   border: 0;
 }
 
-
-/* ==============================
-   2. HEADER AND NAVIGATION
-============================== */
-
 .site-header {
   position: fixed;
   inset: 0 0 auto;
@@ -113,50 +108,29 @@ svg {
 }
 
 /* Logo */
-
 .brand {
   display: inline-flex;
   align-items: center;
   gap: 11px;
-
   flex-shrink: 0;
   color: inherit;
   text-decoration: none;
 }
 
-.brand-mark {
-  width: 36px;
-  height: 36px;
-
-  display: grid;
-  place-items: center;
-
-  background: var(--lime);
-  color: var(--green-dark);
+.brandlogo {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-
-  font-family: 'Manrope', sans-serif;
-  font-size: 19px;
-  font-weight: 800;
+  object-fit: cover;
 }
 
-.brand-name {
-  font-family: 'Manrope', sans-serif;
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -0.8px;
-}
-
-.brand-dot,
 .footer-brand span {
   color: var(--lime);
 }
 
 /* Navigation layout */
-
 .navbar {
   position: relative;
-
   display: flex;
   align-items: center;
   gap: 36px;
@@ -170,11 +144,9 @@ svg {
 
 .nav-link {
   position: relative;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   min-height: 44px;
   padding: 0 13px;
 
@@ -217,14 +189,11 @@ svg {
 }
 
 /* Search icon button */
-
 .search-toggle {
   display: grid;
   place-items: center;
-
   width: 42px;
   height: 42px;
-
   border: 0;
   border-radius: 50%;
   background: transparent;
@@ -273,10 +242,6 @@ svg {
     background-color 0.25s ease,
     color 0.25s ease,
     transform 0.25s ease;
-}
-
-.login-button span {
-  font-size: 16px;
 }
 
 .login-button:hover {
@@ -437,11 +402,9 @@ svg {
 
   color: var(--white);
   background:
-    radial-gradient(
-      ellipse at 82% 38%,
+    radial-gradient(ellipse at 82% 38%,
       rgb(70 121 87 / 32%),
-      transparent 40%
-    ),
+      transparent 40%),
     linear-gradient(125deg, var(--green-dark), var(--green));
 }
 
@@ -451,10 +414,8 @@ svg {
   inset: 0;
   z-index: -1;
 
-  background-image: radial-gradient(
-    rgb(255 255 255 / 12%) 0.7px,
-    transparent 0.7px
-  );
+  background-image: radial-gradient(rgb(255 255 255 / 12%) 0.7px,
+      transparent 0.7px);
 
   background-size: 23px 23px;
   opacity: 0.18;
@@ -570,15 +531,6 @@ svg {
   border-left: 1px solid rgb(255 255 255 / 25%);
 }
 
-.hero-number {
-  margin-bottom: 28px;
-
-  color: var(--lime);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-
 .hero-side-text {
   max-width: 330px;
 
@@ -595,26 +547,6 @@ svg {
   gap: 12px;
 
   margin-top: 35px;
-}
-
-.decoration-circle {
-  width: 18px;
-  height: 18px;
-
-  border: 1px solid var(--lime);
-  border-radius: 50%;
-}
-
-.decoration-circle.small {
-  width: 7px;
-  height: 7px;
-  background: var(--lime);
-}
-
-.decoration-line {
-  width: 65px;
-  height: 1px;
-  background: rgb(255 255 255 / 45%);
 }
 
 .hero-caption {
@@ -691,6 +623,7 @@ svg {
 }
 
 @keyframes arrowBounce {
+
   0%,
   100% {
     transform: translateY(0);
@@ -718,17 +651,7 @@ svg {
   max-width: 750px;
 }
 
-.section-label {
-  margin-bottom: 22px;
-
-  color: var(--green);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-}
-
-.section-heading h2,
-.contact-section h2 {
+.section-heading h2{
   font-family: 'Manrope', sans-serif;
   font-size: clamp(36px, 5vw, 62px);
   font-weight: 600;
@@ -736,49 +659,8 @@ svg {
   letter-spacing: -2.5px;
 }
 
-.section-heading h2 span,
-.contact-section h2 span {
+.section-heading h2 span{
   color: var(--green);
-}
-
-/* About */
-
-.about-section {
-  display: grid;
-  grid-template-columns: 1fr 0.8fr;
-  align-items: start;
-  gap: 100px;
-}
-
-.section-body p {
-  max-width: 490px;
-  color: var(--gray);
-  font-size: 16px;
-  line-height: 1.9;
-}
-
-.text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 18px;
-
-  margin-top: 25px;
-  padding-bottom: 5px;
-
-  border-bottom: 1px solid var(--green);
-  color: var(--green);
-
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.text-link span {
-  transition: transform 0.25s ease;
-}
-
-.text-link:hover span {
-  transform: translate(3px, -3px);
 }
 
 /* Services */
@@ -847,110 +729,6 @@ svg {
   font-size: 20px;
 }
 
-/* Projects */
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
-  margin-top: 55px;
-}
-
-.project-visual {
-  min-height: 330px;
-
-  display: grid;
-  place-items: center;
-
-  overflow: hidden;
-}
-
-.visual-one {
-  background:
-    radial-gradient(circle at 75% 25%, #d8eea6, transparent 35%),
-    linear-gradient(135deg, #e8ede3, #cbd8ca);
-}
-
-.visual-two {
-  background:
-    radial-gradient(circle at 20% 80%, #e4bd83, transparent 35%),
-    linear-gradient(135deg, #254d3e, #112b24);
-}
-
-.visual-symbol {
-  color: var(--green);
-  font-family: 'Manrope', sans-serif;
-  font-size: clamp(55px, 8vw, 105px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -5px;
-  text-align: center;
-}
-
-.visual-two .visual-symbol {
-  color: var(--white);
-  font-size: clamp(35px, 5vw, 62px);
-  letter-spacing: -2px;
-  line-height: 1.1;
-}
-
-.project-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-
-  padding-top: 20px;
-}
-
-.project-info h3 {
-  font-family: 'Manrope', sans-serif;
-  font-size: 19px;
-}
-
-.project-info p {
-  margin-top: 4px;
-  color: var(--gray);
-  font-size: 12px;
-}
-
-.project-info > span {
-  color: var(--green);
-  font-size: 22px;
-}
-
-/* Contact */
-
-.contact-section {
-  padding: 110px 25px;
-  text-align: center;
-
-  background: var(--lime);
-}
-
-.contact-section .section-label {
-  color: var(--green-dark);
-}
-
-.contact-section h2 span {
-  color: #476d36;
-}
-
-.contact-section > p:not(.section-label) {
-  margin-top: 20px;
-  color: #3c5740;
-}
-
-.contact-section .primary-button {
-  background: var(--green-dark);
-  border-color: var(--green-dark);
-  color: var(--white);
-}
-
-.contact-section .primary-button:hover {
-  background: transparent;
-  color: var(--green-dark);
-}
 
 /* Login placeholder */
 
@@ -972,18 +750,12 @@ svg {
   font-size: 14px;
 }
 
-/* ==============================
-   6. FOOTER
-============================== */
-
 .site-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 25px;
-
   padding: 32px max(40px, calc((100% - 1200px) / 2));
-
   background: var(--green-dark);
   color: var(--white);
 }
@@ -1006,6 +778,7 @@ svg {
 ============================== */
 
 @media (max-width: 1050px) {
+
   .header-inner,
   .hero-content,
   .content-section {
@@ -1070,15 +843,6 @@ svg {
   .header-inner {
     width: calc(100% - 36px);
     gap: 12px;
-  }
-
-  .brand-name {
-    font-size: 18px;
-  }
-
-  .brand-mark {
-    width: 33px;
-    height: 33px;
   }
 
   /* Mobile navigation panel */
@@ -1233,10 +997,6 @@ svg {
     border-left: 1px solid rgb(255 255 255 / 25%);
   }
 
-  .hero-number {
-    margin-bottom: 12px;
-  }
-
   .hero-side-text {
     max-width: 400px;
     font-size: 19px;
@@ -1269,8 +1029,7 @@ svg {
     padding: 75px 0;
   }
 
-  .section-heading h2,
-  .contact-section h2 {
+  .section-heading h2{
     font-size: clamp(34px, 8vw, 48px);
     letter-spacing: -1.5px;
   }
@@ -1302,20 +1061,6 @@ svg {
 
   .service-card h3 {
     margin-top: 25px;
-  }
-
-  .project-grid {
-    grid-template-columns: 1fr;
-    gap: 35px;
-    margin-top: 35px;
-  }
-
-  .project-visual {
-    min-height: 260px;
-  }
-
-  .contact-section {
-    padding: 80px 20px;
   }
 
   .login-section {
@@ -1368,6 +1113,7 @@ input:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {

@@ -1,22 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>MyWebsite | Creative Digital Experiences</title>
-
-  <meta
-    name="description"
-    content="Explore MyWebsite, a modern and responsive website built with HTML, CSS, and JavaScript."
-  >
+  <title>Bittu</title>
+  <meta name="description" content="Bittu - A digital library for books, articles, and resources.">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#123d32">
-
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
-
   <script src="script.js" defer></script>
 </head>
 
@@ -24,37 +16,21 @@
   <!-- Header and navigation -->
   <header class="site-header" id="site-header">
     <div class="header-inner">
-
-      <a href="#home" class="brand" aria-label="MyWebsite home">
-        <span class="brand-mark">M</span>
-        <span class="brand-name">MyWebsite<span class="brand-dot">.</span></span>
-      </a>
-
+      <a href="#home" class="brand"><img class="brandlogo" src="./logo.jpg" alt="Logo"></a>
       <nav class="navbar" id="navbar" aria-label="Main navigation">
         <ul class="nav-links">
           <li><a class="nav-link active" href="#home">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#services">Services</a></li>
-          <li><a class="nav-link" href="#projects">Projects</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
+          <li><a class="nav-link" href="#login">Contact</a></li>
         </ul>
-
         <div class="nav-actions">
-          <button
-            class="search-toggle"
-            id="search-toggle"
-            type="button"
-            aria-label="Open search"
-            aria-expanded="false"
-            aria-controls="search-panel"
-          >
+          <button class="search-toggle" id="search-toggle" type="button" aria-label="Open search" aria-expanded="false" aria-controls="search-panel">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="10.8" cy="10.8" r="6.8"></circle>
               <path d="m16 16 4.5 4.5"></path>
             </svg>
           </button>
-
-          <a href="#login" class="login-button">Log In <span>↗</span></a>
+          <a href="#login" class="login-button">Login</a>
         </div>
 
         <!-- Search panel -->
@@ -100,40 +76,25 @@
         <div class="hero-left">
           <p class="eyebrow">
             <span class="status-dot"></span>
-            IDEAS INTO EXPERIENCES
+            How are you ?
           </p>
 
           <h1>
-            Build something
-            <span>meaningful.</span>
+            Digital library for
+            <span>readers</span>
           </h1>
 
-          <p class="hero-description">
-            We believe great digital experiences begin with bold ideas,
-            thoughtful design, and technology that brings everything together.
-          </p>
+          <p class="hero-description">A free digital library of books, blogs and resources for readers.</p>
 
-          <a href="#projects" class="primary-button">
-            Explore Our Work
-            <span aria-hidden="true">↗</span>
-          </a>
+          <a href="#" class="primary-button">Read Now</a>
         </div>
 
         <div class="hero-right">
-          <span class="hero-number">01 / 04</span>
 
-          <p class="hero-side-text">
-            A digital space for creative thinking, modern design,
-            and building what comes next.
-          </p>
-
-          <div class="hero-decoration" aria-hidden="true">
-            <span class="decoration-circle"></span>
-            <span class="decoration-line"></span>
-            <span class="decoration-circle small"></span>
-          </div>
-
-          <p class="hero-caption">DESIGNED FOR WHAT'S NEXT.</p>
+          <p class="hero-side-text">Books...</p>
+          <p class="hero-side-text">Blogs...</p>
+          <p class="hero-side-text">Resources...</p>
+          <p class="hero-side-text">and more creative tools...</p>
         </div>
 
       </div>
@@ -160,132 +121,65 @@
       </a>
     </section>
 
-    <!-- About section -->
-    <section class="content-section about-section" id="about">
-      <div class="section-heading">
-        <p class="section-label">01 — ABOUT US</p>
-        <h2>Good ideas deserve <span>great execution.</span></h2>
-      </div>
-
-      <div class="section-body">
-        <p>
-          MyWebsite is a space for exploring ideas, sharing creativity,
-          and building useful digital experiences. Our approach combines
-          clean design with simple, purposeful technology.
-        </p>
-
-        <a href="#contact" class="text-link">
-          Let's talk <span aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Services section -->
+     <!-- Blogs -->
     <section class="content-section services-section" id="services">
       <div class="section-heading">
-        <p class="section-label">02 — WHAT WE DO</p>
-        <h2>Simple ideas. <span>Smart solutions.</span></h2>
+        <h2>Blogs</h2>
       </div>
 
       <div class="service-grid">
         <article class="service-card">
           <span class="card-number">01</span>
-          <h3>Web Design</h3>
-          <p>
-            Thoughtful layouts and clear visual systems that make
-            websites enjoyable to use.
-          </p>
+          <h3>Books</h3>
+          <p>A collection of interesting books for readers to explore.</p>
+          <span class="card-arrow" aria-hidden="true">↗</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="content-section services-section" id="services">
+      <div class="section-heading">
+        <h2>Services</h2>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <span class="card-number">01</span>
+          <h3>Books</h3>
+          <p>A collection of interesting books for readers to explore.</p>
           <span class="card-arrow" aria-hidden="true">↗</span>
         </article>
 
         <article class="service-card">
           <span class="card-number">02</span>
-          <h3>Development</h3>
-          <p>
-            Responsive, accessible websites built with modern
-            frontend technologies.
-          </p>
+          <h3>Blogs</h3>
+          <p>A list of interesting blog posts about various topics. explore our latest articles.</p>
           <span class="card-arrow" aria-hidden="true">↗</span>
         </article>
 
         <article class="service-card">
           <span class="card-number">03</span>
-          <h3>Creative Ideas</h3>
-          <p>
-            Fresh concepts and practical thinking to turn an idea
-            into something real.
-          </p>
+          <h3>Resources</h3>
+          <p>A collection of useful resources for readers to explore.</p>
           <span class="card-arrow" aria-hidden="true">↗</span>
         </article>
       </div>
     </section>
 
-    <!-- Projects section -->
-    <section class="content-section projects-section" id="projects">
-      <div class="section-heading">
-        <p class="section-label">03 — SELECTED WORK</p>
-        <h2>Made with <span>purpose.</span></h2>
-      </div>
-
-      <div class="project-grid">
-        <article class="project-card project-one">
-          <div class="project-visual visual-one" aria-hidden="true">
-            <span class="visual-symbol">M.</span>
-          </div>
-          <div class="project-info">
-            <div>
-              <h3>Modern Portfolio</h3>
-              <p>Design / Development</p>
-            </div>
-            <span aria-hidden="true">↗</span>
-          </div>
-        </article>
-
-        <article class="project-card project-two">
-          <div class="project-visual visual-two" aria-hidden="true">
-            <span class="visual-symbol">CREATE<br>YOUR<br>FUTURE.</span>
-          </div>
-          <div class="project-info">
-            <div>
-              <h3>Creative Landing Page</h3>
-              <p>Concept / Web Design</p>
-            </div>
-            <span aria-hidden="true">↗</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Contact section -->
-    <section class="contact-section" id="contact">
-      <p class="section-label">04 — GET IN TOUCH</p>
-      <h2>Have an idea?<br><span>Let's build it.</span></h2>
-      <p>Every great project starts with a conversation.</p>
-      <a href="mailto:hello@example.com" class="primary-button">
-        Say Hello <span aria-hidden="true">↗</span>
-      </a>
-    </section>
-
-    <!-- Login placeholder -->
+    <!-- Contact -->
     <section class="login-section" id="login">
-      <h2>Welcome back.</h2>
-      <p>
-        This is a placeholder for your future login page.
-        Authentication has not been connected yet.
-      </p>
+      <h2>Contact Us</h2>
+      <p>Have questions or want to get in touch?</p>
       <a href="#home" class="text-link">Back to home ↑</a>
     </section>
   </main>
 
   <!-- Footer -->
   <footer class="site-footer">
-    <a href="#home" class="footer-brand">MyWebsite<span>.</span></a>
-
-    <p>Designed with purpose. Built with care.</p>
-
-    <p class="copyright">
-      © <span id="current-year"></span> MyWebsite. All rights reserved.
-    </p>
+    <a href="#home" class="footer-brand"><img class="brandlogo" src="./logo.jpg"></a>
+    <p class="copyright"> &copy; <span id="current-year"></span> - Made with ❤️ Bittu</p>
   </footer>
 </body>
 </html>
