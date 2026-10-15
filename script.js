@@ -1,8 +1,3 @@
-
-/* ==============================
-   1. SELECT HTML ELEMENTS
-============================== */
-
 const header = document.querySelector("#site-header");
 const navbar = document.querySelector("#navbar");
 const menuToggle = document.querySelector("#menu-toggle");
